@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
 export default function Home() {
-  const [empresas, setEmpresas] = useState([])
+  const [empresas, setEmpresas] = useState<any[]>[])
 
   async function carregarEmpresas() {
     const { data } = await supabase.from('empresas').select('*')
