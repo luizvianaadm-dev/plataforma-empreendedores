@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
+import Link from 'next/link'
 
 interface Empresa {
   id: string
@@ -41,12 +42,14 @@ export default function Home() {
               Valide sua ideia, entenda seu mercado e construa um plano de negócios sólido
             </p>
           </div>
-          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+          <Link href="/formalizacao">
+        <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
             <h3 className="text-2xl font-bold text-indigo-600 mb-3">📄 Formalize</h3>
             <p className="text-gray-700">
               MEI, CNPJ, certificados digitais - organize toda a documentação legal do seu negócio
             </p>
           </div>
+        </Link>
           <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
             <h3 className="text-2xl font-bold text-indigo-600 mb-3">🌐 Digitalize</h3>
             <p className="text-gray-700">
