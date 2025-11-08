@@ -1,4 +1,4 @@
-mei.tsximport { useState } from 'react'
+mport { useState } from 'react'
 import Link from 'next/link'
 import { supabase } from '../lib/supabaseClient'
 import { atividadesMEI, categorias } from '../lib/cnaeData'
