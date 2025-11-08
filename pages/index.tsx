@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 
+interface Empresa {
+  id: string
+  nome: string
+  descricao: string
+}
+
 export default function Home() {
-  const [empresas, setEmpresas] = useState<any[][])
+  const [empresas, setEmpresas] = useState<Empresa[]>([])
 
   async function carregarEmpresas() {
     const { data } = await supabase.from('empresas').select('*')
@@ -30,60 +36,51 @@ export default function Home() {
 
         <section className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-            <div className="text-4xl mb-4">📋</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">Planejamento</h3>
-            <p className="text-gray-600">
-              Canvas, análise de mercado, público-alvo e proposta de valor estruturada
+            <h3 className="text-2xl font-bold text-indigo-600 mb-3">💡 Planeje</h3>
+            <p className="text-gray-700">
+              Valide sua ideia, entenda seu mercado e construa um plano de negócios sólido
             </p>
           </div>
-
           <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-            <div className="text-4xl mb-4">🏢</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">Formalização</h3>
-            <p className="text-gray-600">
-              CNPJ, MEI, contrato social e todas as documentações necessárias
+            <h3 className="text-2xl font-bold text-indigo-600 mb-3">📄 Formalize</h3>
+            <p className="text-gray-700">
+              MEI, CNPJ, certificados digitais - organize toda a documentação legal do seu negócio
             </p>
           </div>
-
           <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
-            <div className="text-4xl mb-4">🌐</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">Presença Digital</h3>
-            <p className="text-gray-600">
-              Site, redes sociais, marketing digital e estratégias de crescimento
+            <h3 className="text-2xl font-bold text-indigo-600 mb-3">🌐 Digitalize</h3>
+            <p className="text-gray-700">
+              Crie sua presença online: site, redes sociais, Google Meu Negócio e muito mais
             </p>
           </div>
         </section>
 
-        <section className="bg-white rounded-lg shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-gray-800 mb-6">Empresas Cadastradas</h3>
-          <button
+        <section className="bg-white rounded-lg shadow-xl p-8 mb-16">
+          <h3 className="text-3xl font-bold text-gray-800 mb-6">Empresas Cadastradas</h3>
+          <button 
             onClick={carregarEmpresas}
-            className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition mb-6"
+            className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition mb-6"
           >
             Carregar Empresas
           </button>
-
-          <div className="space-y-4">
+          <div className="grid gap-4">
             {empresas.map((empresa) => (
-              <div key={empresa.id} className="border border-gray-200 rounded-lg p-4">
+              <div key={empresa.id} className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
                 <h4 className="font-bold text-lg text-gray-800">{empresa.nome}</h4>
                 <p className="text-gray-600">{empresa.descricao}</p>
-                <span className="text-sm text-gray-500">Criada em: {new Date(empresa.created_at).toLocaleDateString('pt-BR')}</span>
               </div>
             ))}
           </div>
+        </section>
 
-          {empresas.length === 0 && (
-            <p className="text-gray-500 text-center py-8">Nenhuma empresa cadastrada ainda. Clique em Carregar Empresas!</p>
-          )}
+        <section className="text-center bg-indigo-600 text-white rounded-lg shadow-xl p-12">
+          <h3 className="text-3xl font-bold mb-4">Pronto para começar?</h3>
+          <p className="text-xl mb-6">Junte-se a milhares de empreendedores que já transformaram suas ideias em realidade</p>
+          <button className="bg-white text-indigo-600 px-10 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition">
+            Começar Agora
+          </button>
         </section>
       </main>
-
-      <footer className="bg-gray-800 text-white py-6 mt-16">
-        <div className="container mx-auto px-6 text-center">
-          <p>© 2025 Plataforma Empreendedores - Todos os direitos reservados</p>
-        </div>
-      </footer>
     </div>
   )
 }
