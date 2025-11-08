@@ -49,6 +49,14 @@ export default function Home() {
               MEI, CNPJ, certificados digitais - organize toda a documentação legal do seu negócio
             </p>
           </div>
+                    <Link href="/presenca-digital">
+          <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+            <h3 className="text-2xl font-bold text-indigo-600 mb-3">🌐 Presença Digital</h3>
+            <p className="text-gray-700">
+              Crie sua presença online: site, redes sociais, Google Meu Negócio e muito mais
+            </p>
+          </div>
+        </Link>
         </Link>
           <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
             <h3 className="text-2xl font-bold text-indigo-600 mb-3">🌐 Digitalize</h3>
