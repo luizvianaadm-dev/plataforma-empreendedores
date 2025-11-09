@@ -40,9 +40,7 @@ export default function CriarSite() {
           dominio_desejado: formData.dominio_desejado,
           status: 'rascunho'
         }])
-
       if (error) throw error
-
       setMensagem('✅ Site criado com sucesso! Entraremos em contato em breve.')
       setTimeout(() => {
         window.location.href = '/presenca-digital'
@@ -156,7 +154,6 @@ export default function CriarSite() {
                     placeholder="Minha Loja Incrível"
                   />
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Descrição do Negócio *
@@ -170,7 +167,6 @@ export default function CriarSite() {
                     placeholder="Descreva seu negócio e o que você oferece..."
                   />
                 </div>
-
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -195,7 +191,6 @@ export default function CriarSite() {
                     />
                   </div>
                 </div>
-
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Domínio Desejado (opcional)
@@ -208,7 +203,6 @@ export default function CriarSite() {
                     placeholder="meusite.com.br"
                   />
                 </div>
-
                 {mensagem && (
                   <div className={`p-4 rounded-lg ${
                     mensagem.includes('✅') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
@@ -216,7 +210,6 @@ export default function CriarSite() {
                     {mensagem}
                   </div>
                 )}
-
                 <div className="flex gap-4">
                   <button
                     type="button"
