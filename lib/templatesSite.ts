@@ -6,6 +6,9 @@ export interface Template {
   nome: string;
   descricao: string;
   categoria: 'ecommerce' | 'servicos' | 'portfolio';
+  icone: string;
+  recursos: string[];
+  preview_cores: string[];
   cores: {
     primaria: string;
     secundaria: string;
@@ -22,6 +25,9 @@ export const templatesSite: Template[] = [
     nome: 'E-commerce Moderno',
     descricao: 'Template profissional para lojas online com catálogo de produtos',
     categoria: 'ecommerce',
+    icone: '🛍️',
+    recursos: ['Catálogo de produtos', 'Carrinho de compras', 'Pagamentos seguros'],
+    preview_cores: ['#3B82F6', '#10B981'],
     cores: {
       primaria: '#3B82F6',
       secundaria: '#10B981',
@@ -36,6 +42,9 @@ export const templatesSite: Template[] = [
     nome: 'Serviços Elegante',
     descricao: 'Ideal para profissionais autônomos e empresas de serviços',
     categoria: 'servicos',
+    icone: '⭐',
+    recursos: ['Portfólio de serviços', 'Agendamento', 'Depoimentos'],
+    preview_cores: ['#8B5CF6', '#EC4899'],
     cores: {
       primaria: '#8B5CF6',
       secundaria: '#EC4899',
@@ -50,6 +59,9 @@ export const templatesSite: Template[] = [
     nome: 'Portfolio Criativo',
     descricao: 'Mostre seus trabalhos de forma impactante e profissional',
     categoria: 'portfolio',
+    icone: '🎨',
+    recursos: ['Galeria de projetos', 'Filtros por categoria', 'Galeria responsiva'],
+    preview_cores: ['#F59E0B', '#EF4444'],
     cores: {
       primaria: '#F59E0B',
       secundaria: '#EF4444',
