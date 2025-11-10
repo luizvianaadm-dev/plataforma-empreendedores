@@ -9,6 +9,8 @@ export interface RedeSocial {
   link: string;
   descricao: string;
   dicas: string[];
+   melhor_para: string;
+   frequencia_ideal: string;
 }
 
 export const redesSociaisDisponiveis: RedeSocial[] = [
@@ -25,6 +27,8 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Crie Reels para alcance orgânico',
       'Use 5-10 hashtags relevantes',
       'Responda todos os comentários'
+       melhor_para: 'Conteúdo visual e Stories',
+   frequencia_ideal: '3-5 posts/semana'
     ]
   },
   {
@@ -40,6 +44,8 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Use Facebook Ads para anúncios',
       'Interaja em grupos do seu nicho',
       'Agende posts para horários de pico'
+       melhor_para: 'Alcance Amplo e Anúncios',
+ frequencia_ideal: '2-3 posts/dia'
     ]
   },
   {
@@ -55,6 +61,8 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Crie catálogo de produtos',
       'Use etiquetas para organizar conversas',
       'Defina horários de atendimento'
+       melhor_para: 'Atendimento e Relacionamento',
+       frequencia_ideal: 'Conforme demanda'
     ]
   },
   {
@@ -70,6 +78,8 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Poste diário para crescimento',
       'Participe de desafios e trends',
       'Seja autêntico e criativo'
+       melhor_para: 'Vídeos Virais e Criatividade',
+       frequencia_ideal: '1 post/dia'
     ]
   },
   {
@@ -85,6 +95,8 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Publique artigos e insights',
       'Conecte-se com profissionais da área',
       'Participe de grupos e discussões'
+       melhor_para: 'Networking e Pensamento Liderado',
+       frequencia_ideal: '2-3 posts/semana'
     ]
   }
 ];
