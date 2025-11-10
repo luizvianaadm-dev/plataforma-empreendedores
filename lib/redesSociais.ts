@@ -63,7 +63,7 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Crie catálogo de produtos',
       'Use etiquetas para organizar conversas',
       'Defina horários de atendimento',
-    ]
+    ],
         melhor_para: 'Atendimento e Relacionamento',
               frequencia_ideal: 'Conforme demanda'
   },
@@ -80,7 +80,7 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Poste diário para crescimento',
       'Participe de desafios e trends',
       'Seja autêntico e criativo',
-    ]
+    ],
         melhor_para: 'Vídeos Virais e Criatividade',
               frequencia_ideal: '1 post/dia'
   },
@@ -97,7 +97,7 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Publique artigos e insights',
       'Conecte-se com profissionais da área',
       'Participe de grupos e discussões',
-    ]
+    ],
         melhor_para: 'Networking e Pensamento Liderado',
               frequencia_ideal: '2-3 posts/semana'
   }
