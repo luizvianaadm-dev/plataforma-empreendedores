@@ -27,7 +27,7 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Crie Reels para alcance orgânico',
       'Use 5-10 hashtags relevantes',
       'Responda todos os comentários',
-        ]
+        ],
 
         melhor_para: 'Conteúdo visual e Stories',
         frequencia_ideal: '3-5 posts/semana'
@@ -45,7 +45,7 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Use Facebook Ads para anúncios',
       'Interaja em grupos do seu nicho',
       'Agende posts para horários de pico',
-        ]
+        ],
 
         melhor_para: 'Alcance Amplo e Anúncios',
         frequencia_ideal: '2-3 posts/dia'
