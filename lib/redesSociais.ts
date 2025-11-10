@@ -26,10 +26,10 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Use stories diários para engajamento',
       'Crie Reels para alcance orgânico',
       'Use 5-10 hashtags relevantes',
-      'Responda todos os comentários'
-       melhor_para: 'Conteúdo visual e Stories',
-   frequencia_ideal: '3-5 posts/semana'
-    ]
+      'Responda todos os comentários',
+
+        melhor_para: 'Conteúdo visual e Stories',
+        frequencia_ideal: '3-5 posts/semana'
   },
   {
     id: 'facebook',
@@ -43,10 +43,10 @@ export const redesSociaisDisponiveis: RedeSocial[] = [
       'Publique conteúdo variado (fotos, vídeos, links)',
       'Use Facebook Ads para anúncios',
       'Interaja em grupos do seu nicho',
-      'Agende posts para horários de pico'
-       melhor_para: 'Alcance Amplo e Anúncios',
- frequencia_ideal: '2-3 posts/dia'
-    ]
+      'Agende posts para horários de pico',
+
+        melhor_para: 'Alcance Amplo e Anúncios',
+        frequencia_ideal: '2-3 posts/dia'
   },
   {
     id: 'whatsapp',
