@@ -96,6 +96,22 @@ export default function EstoquePage() {
     }
   };
 
+          const handleDelete = async (id: number) => {
+    try {
+      const { error } = await supabase
+        .from('estoque_produtos')
+        .delete()
+        .eq('id', id);
+      
+      if (error) throw error;
+      await loadProdutos();
+      alert('Produto removido com sucesso!');
+    } catch (error) {
+      console.error('Erro ao remover produto:', error);
+      alert('Erro ao remover produto');
+    }
+  };
+
   const totalValorEstoque = produtos.reduce((acc, p) => acc + (p.preco_venda * p.quantidade), 0);
   const totalProdutos = produtos.length;
   const totalItens = produtos.reduce((acc, p) => acc + p.quantidade, 0);
