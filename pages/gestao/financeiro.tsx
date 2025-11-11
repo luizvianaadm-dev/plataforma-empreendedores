@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
-import { ArrowLeft, Plus, DollarSign, Trash2 } from 'lucide-react';
+import { ArrowLeft, Plus, DollarSign, Trash2 } from 'lucide-react, Edit, Check }
 
 interface Transacao {
   id: number;
@@ -34,6 +34,8 @@ export default function FinanceiroPage() {
   useEffect(() => {
     loadTransacoes();
   }, []);
+    const [editingId, setEditingId] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const loadTransacoes = async () => {
     try {
