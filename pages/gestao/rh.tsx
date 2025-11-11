@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
-import { ArrowLeft, Plus, Users, Trash2 } from 'lucide-react';
+import { ArrowLeft, Plus, Users, Trash2, Edit, Check } from 'lucide-react';
 
 interface Funcionario {
   id: number;
@@ -32,6 +32,8 @@ export default function RHPage() {
     departamento: '',
     status: 'ativo',
   });
+    const [editingId, setEditingId] = useState<number | null>(null);
+    const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     loadFuncionarios();
@@ -52,6 +54,47 @@ export default function RHPage() {
       setLoading(false);
     }
   };
+
+    const handleEdit = (funcionario: Funcionario) => {
+    setFormData(funcionario);
+    setEditingId(funcionario.id);
+  };
+
+    const handleUpdate = async () => {
+    if (!editingId) return;
+    try {
+      await supabase
+        .from('rh_funcionarios')
+        .update({
+          nome: formData.nome,
+          cargo: formData.cargo,
+          salario: parseFloat(formData.salario as unknown as string),
+          data_admissao: formData.data_admissao,
+          departamento: formData.departamento,
+          status: formData.status,
+        })
+        .eq('id', editingId);
+      alert('Funcionário atualizado com sucesso!');
+      setEditingId(null);
+      setFormData({
+        nome: '',
+        cargo: '',
+        salario: '',
+        data_admissao: '',
+        departamento: '',
+        status: 'ativo',
+      });
+      loadFuncionarios();
+    } catch (error) {
+      console.error('Erro ao atualizar funcionário:', error);
+      alert('Erro ao atualizar funcionário');
+    }
+  };
+
+    const filteredFuncionarios = funcionarios.filter((func) =>
+    func.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    func.cargo.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
