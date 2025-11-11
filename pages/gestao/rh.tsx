@@ -9,7 +9,7 @@ interface Funcionario {
   id: number;
   nome: string;
   cargo: string;
-  salario: number;
+  salario: string;
   data_admissao: string;
   departamento: string;
   status: string;
