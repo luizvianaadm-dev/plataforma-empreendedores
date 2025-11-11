@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
-import { ArrowLeft, Plus, DollarSign, Trash2 } from 'lucide-react, Edit, Check }
-
+import { ArrowLeft, Plus, DollarSign, Trash2, Edit, Check } from 'lucide-react';
 interface Transacao {
   id: number;
   tipo: string;
