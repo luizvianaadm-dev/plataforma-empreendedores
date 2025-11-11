@@ -25,8 +25,6 @@ export default function EstoquePage() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
-      const [editingId, setEditingId] = useState<number | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
     nome: '',
     sku: '',
     quantidade: '',
@@ -35,6 +33,8 @@ export default function EstoquePage() {
     categoria: '',
     localizacao: '',
   });
+    const [editingId, setEditingId] = useState<number | null>(null);
+    const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     loadProdutos();
