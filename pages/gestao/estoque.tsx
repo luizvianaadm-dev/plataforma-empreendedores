@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Link from 'next/link';
-import { ArrowLeft, Plus, Package, Trash2 } from 'lucide-react';
+import { ArrowLeft, Plus, Package, Trash2 } from 'lucide-react, Edit, Check }
 
 interface Produto {
   id: number;
@@ -26,6 +26,8 @@ export default function EstoquePage() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
+      const [editingId, setEditingId] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
     nome: '',
     sku: '',
     quantidade: '',
@@ -111,6 +113,57 @@ export default function EstoquePage() {
       alert('Erro ao remover produto');
     }
   };
+
+  const handleEdit = (produto: Produto) => {
+    setFormData(produto);
+    setEditingId(produto.id);
+  };
+
+  const handleUpdate = async () => {
+    if (!editingId || !formData.nome || !formData.sku) {
+      alert('Por favor, preencha os campos obrigatorios');
+      return;
+    }
+    
+    try {
+      const { error } = await supabase
+        .from('estoque_produtos')
+        .update({
+          nome: formData.nome,
+          sku: formData.sku,
+          quantidade: parseInt(formData.quantidade),
+          preco_custo: parseFloat(formData.preco_custo) || 0,
+          preco_venda: parseFloat(formData.preco_venda),
+          categoria: formData.categoria || 'Geral',
+          localizacao: formData.localizacao || 'A definir',
+        })
+        .eq('id', editingId);
+      
+      if (error) throw error;
+      
+      setFormData({
+        nome: '',
+        sku: '',
+        quantidade: '',
+        preco_custo: '',
+        preco_venda: '',
+        categoria: '',
+        localizacao: '',
+      });
+      
+      setEditingId(null);
+      await loadProdutos();
+      alert('Produto atualizado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao atualizar produto:', error);
+      alert('Erro ao atualizar produto');
+    }
+  };
+
+  const filteredProdutos = produtos.filter((p) =>
+    p.nome.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    p.sku.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const totalValorEstoque = produtos.reduce((acc, p) => acc + (p.preco_venda * p.quantidade), 0);
   const totalProdutos = produtos.length;
