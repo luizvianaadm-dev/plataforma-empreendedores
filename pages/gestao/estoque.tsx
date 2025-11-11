@@ -114,9 +114,16 @@ export default function EstoquePage() {
   };
 
   const handleEdit = (produto: Produto) => {
-    setFormData(produto);
-    setEditingId(produto.id);
-  };
+      setFormData({
+        nome: produto.nome,
+        sku: produto.sku,
+        quantidade: produto.quantidade.toString(),
+        preco_custo: produto.preco_custo.toString(),
+        preco_venda: produto.preco_venda.toString(),
+        categoria: produto.categoria,
+        localizacao: produto.localizacao,
+      });
+      setEditingId(produto.id);  };
 
   const handleUpdate = async () => {
     if (!editingId || !formData.nome || !formData.sku) {
