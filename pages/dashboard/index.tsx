@@ -5,10 +5,13 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { LayoutDashboard, Plus, Settings, CreditCard, LogOut, Zap } from 'lucide-react';
+import OrganizationSwitcher from '../../components/OrganizationSwitcher';
+import { useOrganization } from '../../lib/contexts/OrganizationContext';
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
   const router = useRouter();
+    const { organizations, currentOrganization, switchOrganization } = useOrganization();
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -45,6 +48,11 @@ export default function Dashboard() {
               <LayoutDashboard className="h-8 w-8 text-blue-600" />
               <h1 className="text-2xl font-bold text-gray-900">Plataforma de Empreendedores</h1>
             </div>
+                          <OrganizationSwitcher
+                                            organizations={organizations}
+                                            currentOrganization={currentOrganization}
+                                            onOrganizationChange={switchOrganization}
+                                          />
             <div className="flex items-center space-x-4">
               <div className="text-right">
                 <p className="text-sm font-medium text-gray-900">{session.user?.name || session.user?.email}</p>
