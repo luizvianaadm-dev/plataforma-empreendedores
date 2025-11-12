@@ -2,8 +2,7 @@
 
 import React from 'react';
 
-interface ModalProps extends React.HTMLAttributes<HTMLDivElement> {
-  isOpen: boolean;
+interface ModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'> {  isOpen: boolean;
   onClose: () => void;
   title?: string;
   description?: string;
