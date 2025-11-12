@@ -49,15 +49,15 @@ export default async function handler(
       const { name, slug, plan } = req.body;
       const newOrg: Organization = {
         id: String(mockOrganizations.length + 1),
-        user_id: 'user123',
         name,
         slug,
         plan,
         subscription_status: 'active',
-        current_automations: 0,
-        current_messages: 0,
         created_at: new Date()),
         updated_at: new Date()),
+            max_automations: 10,
+            max_messages_per_month: 5000,
+            messages_used_this_month: 1250,
       };
       mockOrganizations.push(newOrg);
       return res.status(201).json(newOrg);
