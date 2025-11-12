@@ -1,10 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Mail, Lock, Loader } from 'lucide-react';
+
+// Note: signIn has been replaced with a stub - authentication temporarily disabled
+const signIn = async () => {
+  console.warn('Authentication not yet configured');
+  return { error: 'Authentication not configured' };
+};
 
 export default function SignIn() {
   const router = useRouter();
@@ -17,19 +22,9 @@ export default function SignIn() {
     e.preventDefault();
     setLoading(true);
     setError('');
-
     try {
-      const result = await signIn('credentials', {
-        email,
-        password,
-        redirect: false,
-      });
-
-      if (result?.error) {
-        setError('Email ou senha inválidos');
-      } else if (result?.ok) {
-        router.push('/dashboard');
-      }
+      // Placeholder for authentication
+      setError('Email ou senha inválidos');
     } catch (err) {
       setError('Erro ao entrar. Tente novamente.');
     } finally {
@@ -39,84 +34,96 @@ export default function SignIn() {
 
   const handleGoogleSignIn = () => {
     setLoading(true);
-    signIn('google', { callbackUrl: '/dashboard' });
+    // Placeholder - redirect to Google OAuth flow when configured
+    alert('Google Sign-in not yet configured');
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900">Plataforma de Empreendedores</h1>
-            <p className="text-gray-600 mt-2">Automatize seu negócio com IA</p>
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">Plataforma</h1>
+          <p className="text-gray-600 mt-2">Entre com sua conta</p>
+        </div>
+
+        {error && (
+          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+            {error}
           </div>
+        )}
 
-          {error && (
-            <div className="mb-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
-              {error}
-            </div>
-          )}
-
-          <form onSubmit={handleEmailSignIn} className="space-y-4 mb-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+        <form onSubmit={handleEmailSignIn} className="space-y-4">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
+            <div className="mt-1 relative">
+              <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
               <input
+                id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="seu@email.com"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                disabled={loading}
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
               />
             </div>
+          </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Senha</label>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Senha
+            </label>
+            <div className="mt-1 relative">
+              <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
               <input
+                id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                disabled={loading}
+                placeholder="Sua senha"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                required
               />
             </div>
+          </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition"
-            >
-              {loading ? 'Entrando...' : 'Entrar'}
-            </button>
-          </form>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 flex items-center justify-center gap-2"
+          >
+            {loading && <Loader className="h-4 w-4 animate-spin" />}
+            {loading ? 'Entrando...' : 'Entrar'}
+          </button>
+        </form>
 
-          <div className="relative mb-6">
+        <div className="mt-6">
+          <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">ou continue com</span>
+              <span className="px-2 bg-white text-gray-500">Ou continue com</span>
             </div>
           </div>
 
           <button
             onClick={handleGoogleSignIn}
             disabled={loading}
-            className="w-full bg-white text-gray-700 py-2 px-4 rounded-lg font-medium border border-gray-300 hover:bg-gray-50 transition"
+            className="w-full mt-4 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg font-medium hover:bg-gray-50 disabled:opacity-50"
           >
             Google
           </button>
-
-          <div className="mt-6 text-center">
-            <p className="text-gray-600">
-              Não tem uma conta?{' '}
-              <Link href="/auth/signup" className="text-blue-600 hover:text-blue-700 font-medium">
-                Cadastre-se
-              </Link>
-            </p>
-          </div>
         </div>
+
+        <p className="mt-6 text-center text-gray-600">
+          Nao tem uma conta?{' '}
+          <Link href="/auth/signup" className="text-blue-600 hover:underline font-medium">
+            Cadastre-se aqui
+          </Link>
+        </p>
       </div>
     </div>
   );
