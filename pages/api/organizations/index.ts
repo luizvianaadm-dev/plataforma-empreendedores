@@ -56,8 +56,8 @@ export default async function handler(
         subscription_status: 'active',
         current_automations: 0,
         current_messages: 0,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
+        created_at: new Date()),
+        updated_at: new Date()),
       };
       mockOrganizations.push(newOrg);
       return res.status(201).json(newOrg);
