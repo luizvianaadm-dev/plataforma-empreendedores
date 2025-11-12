@@ -11,8 +11,8 @@ const mockOrganizations: Organization[] = [
     plan: 'free',    subscription_status: 'active',
     current_automations: 0,
     current_messages: 0,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: new Date(),
+    updated_at: new Date(),
   },
   {
     id: '2',
@@ -23,8 +23,8 @@ const mockOrganizations: Organization[] = [
     subscription_status: 'active',
     current_automations: 3,
     current_messages: 1250,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
+    created_at: new Date(),
+    updated_at: new Date(),
   },
 ];
 
