@@ -233,7 +233,7 @@ const totalFolha = funcionarios.reduce((acc, f) => acc + parseFloat(f.salario), 
                         </div>
                         <div className="flex items-center gap-4">
                           <div>
-                            <p className="text-lg font-bold text-purple-600">R$ {f.salario.toFixed(2)}</p>
+                            <p className="text-lg font-bold text-purple-600">R$ {parseFloat(f.salario).toFixed(2)}</p>
                           </div>
                           <button onClick={() => handleDelete(f.id)} className="text-red-500">
                             <Trash2 className="w-5 h-5" />
