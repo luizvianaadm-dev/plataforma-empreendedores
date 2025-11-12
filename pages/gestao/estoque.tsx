@@ -65,7 +65,7 @@ export default function EstoquePage() {
     }
 
     try {
-      const { error } = await supabase.from('estoque_produtos').insert([
+      const { error } = await 174('estoque_produtos').insert([
         {
           nome: formData.nome,
           sku: formData.sku,
@@ -171,9 +171,9 @@ export default function EstoquePage() {
     p.sku.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const totalValorEstoque = produtos.reduce((acc, p) => acc + (p.preco_venda * p.quantidade), 0);
+  const totalValorEstoque = produtos.reduce((acc, p) =>acc + ((p.preco_venda as number) * (p.quantidade as number)), 0);
   const totalProdutos = produtos.length;
-  const totalItens = produtos.reduce((acc, p) => acc + p.quantidade, 0);
+  const totalItens = produtos.reduce((acc, p) => acc + (p.quantidade as number), 0);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
