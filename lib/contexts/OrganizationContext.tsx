@@ -1,7 +1,6 @@
 'use client';
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { useSession } from 'next-auth/react';
 import type { Organization } from '../types/organization';
 
 interface OrganizationContextType {
@@ -15,21 +14,18 @@ interface OrganizationContextType {
 const OrganizationContext = createContext<OrganizationContextType | undefined>(undefined);
 
 export function OrganizationProvider({ children }: { children: ReactNode }) {
-  const { data: session } = useSession();
   const [organizations, setOrganizations] = useState<Organization[]>([]);
   const [currentOrganization, setCurrentOrganization] = useState<Organization | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   // Fetch organizations from API
   const fetchOrganizations = async () => {
-    if (!session?.user) return;
-    
     setIsLoading(true);
     try {
       // TODO: Replace with real API call
       // const res = await fetch('/api/organizations');
       // const data = await res.json();
-      
+
       // Mock data for now
       const mockOrgs: Organization[] = [
         {
@@ -45,12 +41,12 @@ export function OrganizationProvider({ children }: { children: ReactNode }) {
           updated_at: new Date(),
         },
       ];
-      
+
       setOrganizations(mockOrgs);
-      
+
       // Set current organization (from localStorage or first org)
       const savedOrgId = localStorage.getItem('currentOrganizationId');
-      const current = savedOrgId 
+      const current = savedOrgId
         ? mockOrgs.find(org => org.id === savedOrgId)
         : mockOrgs[0];
       setCurrentOrganization(current || null);
@@ -63,7 +59,7 @@ export function OrganizationProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     fetchOrganizations();
-  }, [session]);
+  }, []);
 
   const switchOrganization = (orgId: string) => {
     const org = organizations.find(o => o.id === orgId);
