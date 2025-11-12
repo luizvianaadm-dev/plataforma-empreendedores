@@ -1,4 +1,4 @@
-'use client';
+interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'padding'> {'use client';
 
 import React from 'react';
 
