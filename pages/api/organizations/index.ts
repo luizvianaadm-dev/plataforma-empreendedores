@@ -53,7 +53,7 @@ export default async function handler(
         slug,
         plan,
         subscription_status: 'active',
-        created_at: new Date()),
+        created_at: new Date(),,
         updated_at: new Date()),
             max_automations: 10,
             max_messages_per_month: 5000,
