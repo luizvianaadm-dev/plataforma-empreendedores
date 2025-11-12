@@ -43,8 +43,7 @@ export default function Dashboard() {
             <p className="text-gray-600 mt-1">Bem-vindo de volta!</p>
           </div>
           <div className="flex items-center gap-4">
-            <OrganizationSwitcher />
-            <Link
+<OrganizationSwitcher organizations={[]} currentOrganization={null} onSwitch={() => {}} />            <Link
               href="/settings"
               className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg"
             >
