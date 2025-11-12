@@ -8,7 +8,7 @@ interface Transacao {
   id: number;
   tipo: string;
   descricao: string;
-  valor: string;
+  valor: number;
   data: string;
   categoria: string;
   created_at: string;
