@@ -8,9 +8,9 @@ interface Produto {
   id: number;
   nome: string;
   sku: string;
-  quantidade: string;
-  preco_custo: string;
-  preco_venda: string;
+  quantidade: number;
+  preco_custo: number;
+  preco_venda: number;
   categoria: string;
   localizacao: string;
   created_at: string;
