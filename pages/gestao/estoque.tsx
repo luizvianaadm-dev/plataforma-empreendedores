@@ -66,7 +66,7 @@ export default function EstoquePage() {
     }
 
     try {
-      const { error } = await supabase.insert([
+      const { error } = await supabase.from('estoque_produtos').insert([
         {
           nome: formData.nome,
           sku: formData.sku,
