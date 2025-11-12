@@ -5,7 +5,6 @@ import type { Organization } from '../../../lib/types/organization';
 const mockOrganizations: Organization[] = [
   {
     id: '1',
-    user_id: 'user123',
     name: 'Minha Empresa',
     slug: 'minha-empresa',
     plan: 'free',    subscription_status: 'active',
@@ -16,7 +15,6 @@ const mockOrganizations: Organization[] = [
   },
   {
     id: '2',
-    user_id: 'user123',
     name: 'Projeto Beta',
     slug: 'projeto-beta',
     plan: 'pro',
