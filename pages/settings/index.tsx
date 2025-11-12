@@ -6,8 +6,7 @@ import { User, Mail, Lock, Bell, CreditCard, Shield, HelpCircle } from 'lucide-r
 import Link from 'next/link';
 
 // Stub: Authentication temporarily disabled
-const useSession = () => ({ data: { user: { email: '' } }, status: 'unauthenticated' });const signOut = () => {};
-
+const useSession = () => ({ data: { user: { email: '', name: '' } }, status: 'unauthenticated' });const signOut = () => {};
 export default function SettingsPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
