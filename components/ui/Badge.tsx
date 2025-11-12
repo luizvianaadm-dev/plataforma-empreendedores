@@ -1,4 +1,4 @@
-'use client';
+interface BadgeProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'size'> {'use client';
 
 import React from 'react';
 
