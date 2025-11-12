@@ -8,7 +8,7 @@ import OrganizationSwitcher from '../../components/OrganizationSwitcher';
 import { useOrganization } from '../../lib/contexts/OrganizationContext';
 
 // Stub: Authentication temporarily disabled
-const useSession = () => ({});const signOut = (({ data: { user: null }, status: 'unauthenticated' });const signOut = () => {}
+const useSession = () => ({ data: { user: null }, status: 'unauthenticated' }); const signOut = () => {};
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
