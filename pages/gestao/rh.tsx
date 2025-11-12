@@ -153,8 +153,7 @@ export default function RHPage() {
   };
 
   const totalFuncionarios = funcionarios.length;
-  const totalFolha = funcionarios.reduce((acc, f) => acc + f.salario, 0);
-  const funcionariosAtivos = funcionarios.filter(f => f.status === 'ativo').length;
+const totalFolha = funcionarios.reduce((acc, f) => acc + parseFloat(f.salario), 0);  const funcionariosAtivos = funcionarios.filter(f => f.status === 'ativo').length;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
