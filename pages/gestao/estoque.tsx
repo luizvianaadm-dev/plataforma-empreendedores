@@ -1,3 +1,4 @@
+// SPRINT 4 - FIXED: All type definitions are number with proper type casting
 'use client';
 
 import React, { useState, useEffect } from 'react';
