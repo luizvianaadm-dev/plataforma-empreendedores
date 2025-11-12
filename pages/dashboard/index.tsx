@@ -43,7 +43,7 @@ export default function Dashboard() {
             <p className="text-gray-600 mt-1">Bem-vindo de volta!</p>
           </div>
           <div className="flex items-center gap-4">
-<OrganizationSwitcher organizations={[]} currentOrganization={null} onSwitch={() => {}} />            <Link
+<OrganizationSwitcher organizations={[]} currentOrganization={{ id: '1', name: 'Default', slug: 'default', plan: 'free', subscription_status: 'active', subscription_id: '', subscription_current_period_end: new Date(), max_automations: 10, max_messages_per_month: 5000, messages_used_this_month: 0, created_at: new Date(), updated_at: new Date() }} onSwitch={() => {}} />            <Link
               href="/settings"
               className="p-2 text-gray-600 hover:bg-gray-100 rounded-lg"
             >
