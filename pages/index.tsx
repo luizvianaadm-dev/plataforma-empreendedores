@@ -35,6 +35,7 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-8">
             {/* Card 1 - Planeje */}
+                        <Link href="/planeje">
             <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-t-4 border-blue-500">
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8">
                 <div className="text-5xl mb-4">💡</div>
@@ -44,6 +45,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
+                                      </Link>
 
             {/* Card 2 - Formalize */}
             <Link href="/formalizacao">
