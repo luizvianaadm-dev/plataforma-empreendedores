@@ -16,7 +16,7 @@
         "@types/node": "20.10.0",
         "@types/react": "18.2.45",
         "@types/react-dom": "18.2.18",
-        "lucide-react": "^0.263.1"
+        "lucide-react": "^0.263.1",
         "googleapis": "^118.0.0",
         "google-auth-library": "^9.4.1",
         "@types/googleapis": "^0.0.45",
