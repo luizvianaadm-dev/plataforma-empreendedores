@@ -5,27 +5,27 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start"
   },
   "dependencies": {
     "next": "14.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "@supabase/supabase-js": "^2.38.0",
-        "typescript": "5.3.3",
-        "@types/node": "20.10.0",
-        "@types/react": "18.2.45",
-        "@types/react-dom": "18.2.18",
-        "lucide-react": "^0.263.1",
-        "googleapis": "^118.0.0",
-        "google-auth-library": "^9.4.1",
-        "@types/googleapis": "^0.0.45",
+    "typescript": "5.3.3",
+    "@types/node": "20.10.0",
+    "@types/react": "18.2.45",
+    "@types/react-dom": "18.2.18",
+    "lucide-react": "^0.263.1",
+    "googleapis": "^118.0.0",
+    "google-auth-library": "^9.4.1",
+    "@types/googleapis": "^0.0.45"
   },
   "devDependencies": {
     "@types/node": "20.8.0",
     "@types/react": "18.2.0",
-        "tailwindcss": "3.3.0",
+    "tailwindcss": "3.3.0",
     "autoprefixer": "10.4.0",
-    "postcss": "8.4.0",
+    "postcss": "8.4.0"
   }
 }
