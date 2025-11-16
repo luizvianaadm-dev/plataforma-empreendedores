@@ -18,9 +18,7 @@
     "@types/react-dom": "18.2.18",
     "lucide-react": "^0.263.1",
     "googleapis": "^118.0.0",
-    "google-auth-library": "^9.4.1",
-    "@types/googleapis": "^0.0.45"
-  },
+    "google-auth-library": "^9.4.1"1
   "devDependencies": {
     "@types/node": "20.8.0",
     "@types/react": "18.2.0",
