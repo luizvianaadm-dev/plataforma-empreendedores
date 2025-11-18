@@ -11,6 +11,7 @@ export default function SignUp() {
   const [nome, setNome] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+    const [lgpdAccepted, setLgpdAccepted] = useState(false);
 
   async function handleSignUp(e: React.FormEvent) {
     e.preventDefault();
@@ -89,15 +90,31 @@ export default function SignUp() {
               minLength={6}
             />
           </div>
+          
+          {/* LGPD Checkbox - MANDATORY */}
+          <div className="mb-6">
+            <label className="flex items-start space-x-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={lgpdAccepted}
+                onChange={(e) => setLgpdAccepted(e.target.checked)}
+                className="mt-1 w-5 h-5 text-indigo-600 rounded focus:ring-indigo-500"
+              />
+              <span className="text-gray-700 text-sm">
+                Li e concordo com a <Link href="/politica-lgpd"><a className="text-indigo-600 hover:text-indigo-700 underline">Política de Privacidade e LGPD</a></Link>
+              </span>
+            </label>
+            <p className="text-xs text-red-600 mt-2">
+              * Esta aceitação é obrigatória para criar sua conta
+            </p>
+          </div>
 
           <button
             type="submit"
-            disabled={loading}
-            className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-bold py-2 rounded-lg transition duration-200"
+            disabled={loading || !lgpdAccepted}            className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-bold py-2 rounded-lg transition duration-200"
           >
             {loading ? 'Criando conta...' : 'Criar Conta'}
-          </button>
-        </form>
+            </button>        </form>
 
         <div className="mt-6 text-center">
           <p className="text-gray-600">
