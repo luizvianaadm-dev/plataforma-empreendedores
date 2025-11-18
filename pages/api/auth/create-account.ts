@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { validateCPF, validateEmail, validatePhoneNumber, validateName, validatePassword } from '../../lib/validations';
 
 export default async function handler(
   req: NextApiRequest,
