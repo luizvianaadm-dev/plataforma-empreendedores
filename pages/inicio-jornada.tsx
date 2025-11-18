@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 interface Etapa {
@@ -25,6 +25,14 @@ export default function InicioJornada() {
   const [etapaAtual, setEtapaAtual] = useState<number>(1)
   const [etapas, setEtapas] = useState<Etapa[]>(ETAPAS)
   const [formData, setFormData] = useState<Record<string, any>>({})
+   useEffect(() => {
+    if (etapaAtual > 2 && etapaAtual <= 10) {
+      const timeout = setTimeout(() => {
+        setEtapaAtual(etapaAtual + 1)
+      }, 5000)
+      return () => clearTimeout(timeout)
+    }
+  }, [etapaAtual])
 
   const handleProxima = () => {
     const novasEtapas = [...etapas]
@@ -127,7 +135,8 @@ export default function InicioJornada() {
               </div>
             )}
 
-            {etapaAtual > 2 && etapaAtual <= 10 && (
+            {25
+              && etapaAtual <= 10 && (
               <div className="bg-gradient-to-r from-purple-50 to-indigo-50 p-8 rounded-lg text-center">
                 <p className="text-lg text-gray-700 font-semibold mb-4">Etapa {etapaAtual} - {etapas[etapaAtual - 1].titulo}</p>
                 <p className="text-gray-600">Processando {etapas[etapaAtual - 1].descricao.toLowerCase()}...</p>
