@@ -20,6 +20,7 @@
     "googleapis": "^118.0.0",
     "google-auth-library": "^9.4.1"
         "bcrypt": "^5.1.0",
+        "jsonwebtoken": "^9.1.0"
   },
   "devDependencies": {
     "@types/node": "20.8.0",
