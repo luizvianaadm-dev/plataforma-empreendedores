@@ -5,12 +5,12 @@ import Link from 'next/link'
 interface Empresa {
   id: string
   nome: string
-  descricao: string
+  website: string
 }
 
 export default function Home() {
   const [empresas, setEmpresas] = useState<Empresa[]>([])
-
+  
   async function carregarEmpresas() {
     const { data } = await supabase.from('empresas').select('*')
     setEmpresas(data || [])
@@ -18,23 +18,11 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - SEM BOTÕES */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-5xl font-bold mb-4">Seu Caminho para o Sucesso Empresarial</h2>
           <p className="text-xl text-blue-100 mb-8">
-             <div className="flex gap-4 justify-center mt-8">
-                <Link href="/login">
-                   <button className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 cursor-pointer">
-                      Entrar
-                      </button>
-                   </Link>
-                <Link href="/signup">
-                   <button className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 cursor-pointer border-2 border-white">
-                      Criar Conta
-                      </button>
-                   </Link>
-                </div>
             Tudo que você precisa em um único lugar: Planejamento, Formalização, Presença Digital, Gestão e Crescimento
           </p>
         </div>
@@ -44,7 +32,6 @@ export default function Home() {
       <section className="py-20 px-6 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-4xl font-bold text-center mb-16 text-gray-900">Como funciona</h3>
-
           <div className="grid md:grid-cols-5 gap-6">
             {/* Card 1 - Planeje */}
             <Link href="/planeje">
@@ -85,7 +72,7 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Card 4 - Gestao Operacional (NEW) */}
+            {/* Card 4 - Gestao Operacional */}
             <Link href="/gestao-operacional">
               <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-t-4 border-yellow-500 cursor-pointer">
                 <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8">
@@ -98,7 +85,7 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Card 5 - Crescimento & Expansao (NEW) */}
+            {/* Card 5 - Crescimento & Expansao */}
             <Link href="/crescimento-expansao">
               <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border-t-4 border-red-500 cursor-pointer">
                 <div className="bg-gradient-to-br from-red-50 to-red-100 p-8">
@@ -114,12 +101,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Empresas Cadastradas Section */}
+      {/* Empresas Cadastradas Section - COM BOTÃO DE CADASTRO */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="bg-white rounded-2xl shadow-xl p-12 border-l-4 border-indigo-600">
             <h3 className="text-4xl font-bold text-gray-900 mb-2">Empresas Cadastradas</h3>
             <p className="text-gray-600 mb-8 text-lg">Conheça empreendedores que já transformaram suas ideias em realidade</p>
+            
+            {/* Botão de Cadastro */}
+            <Link href="/cadastro-empresa-listagem">
+              <button className="mb-8 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                ➕ Cadastrar Empresa na Listagem
+              </button>
+            </Link>
 
             {empresas.length > 0 && (
               <div className="grid gap-4">
@@ -129,7 +123,11 @@ export default function Home() {
                     className="border-l-4 border-indigo-400 bg-indigo-50 rounded-lg p-6 hover:bg-indigo-100 transition-colors duration-200"
                   >
                     <h4 className="font-bold text-lg text-indigo-900">{empresa.nome}</h4>
-                    <p className="text-indigo-700 mt-2">{empresa.descricao}</p>
+                    {empresa.website && (
+                      <a href={empresa.website} target="_blank" rel="noopener noreferrer" className="text-indigo-600 mt-2 hover:underline">
+                        {empresa.website}
+                      </a>
+                    )}
                   </div>
                 ))}
               </div>
@@ -137,40 +135,41 @@ export default function Home() {
           </div>
         </div>
       </section>
-       {/* Autenticação Section */}
- <section className="py-20 px-6 bg-gray-50">
- <div className="container mx-auto max-w-3xl">
- <div className="grid md:grid-cols-2 gap-8">
- {/* Login Button */}
- <Link href="/login">
- <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 text-center border-t-4 border-indigo-600 cursor-pointer">
- <div className="text-5xl mb-4">🔐</div>
- <h3 className="text-2xl font-bold text-gray-900 mb-3">Já tem Conta?</h3>
- <p className="text-gray-700 leading-relaxed mb-6">
- Acesse sua conta e continue sua jornada empresarial
- </p>
- <button className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
- Entrar
- </button>
- </div>
- </Link>
 
- {/* Signup Button */}
- <Link href="/signup">
- <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 text-center border-t-4 border-blue-500 cursor-pointer">
- <div className="text-5xl mb-4">✨</div>
- <h3 className="text-2xl font-bold text-gray-900 mb-3">Novo Aqui?</h3>
- <p className="text-gray-700 leading-relaxed mb-6">
- Crie sua conta e comece a transformar sua ideia em negócio
- </p>
- <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
- Criar Conta
- </button>
- </div>
- </Link>
- </div>
- </div>
- </section>
+      {/* Autenticação Section */}
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="container mx-auto max-w-3xl">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Login Button */}
+            <Link href="/login">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 text-center border-t-4 border-indigo-600 cursor-pointer">
+                <div className="text-5xl mb-4">🔐</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Já tem Conta?</h3>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Acesse sua conta e continue sua jornada empresarial
+                </p>
+                <button className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                  Entrar
+                </button>
+              </div>
+            </Link>
+
+            {/* Signup Button */}
+            <Link href="/signup">
+              <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 text-center border-t-4 border-blue-500 cursor-pointer">
+                <div className="text-5xl mb-4">✨</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Novo Aqui?</h3>
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Crie sua conta e comece a transformar sua ideia em negócio
+                </p>
+                <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                  Criar Conta
+                </button>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-20 px-6">
@@ -186,6 +185,47 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* Footer - COM TELEFONE E INFO */}
+      <footer className="bg-gray-900 text-white py-12 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Coluna 1 - Sobre */}
+            <div>
+              <h4 className="text-2xl font-bold mb-4">Plataforma Empreendedores</h4>
+              <p className="text-gray-400 leading-relaxed">
+                Transformando ideias em negócios de sucesso através de planejamento, formalização e crescimento estratégico.
+              </p>
+            </div>
+
+            {/* Coluna 2 - Links */}
+            <div>
+              <h4 className="text-xl font-bold mb-4">Links Rápidos</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link href="/planeje"><span className="hover:text-white cursor-pointer">Planeje</span></Link></li>
+                <li><Link href="/formalizacao"><span className="hover:text-white cursor-pointer">Formalize</span></Link></li>
+                <li><Link href="/presenca-digital"><span className="hover:text-white cursor-pointer">Presença Digital</span></Link></li>
+                <li><Link href="/politica-lgpd"><span className="hover:text-white cursor-pointer">Política LGPD</span></Link></li>
+              </ul>
+            </div>
+
+            {/* Coluna 3 - Contato */}
+            <div>
+              <h4 className="text-xl font-bold mb-4">Contato</h4>
+              <p className="text-gray-400 mb-2">
+                <strong>Telefone:</strong> <span className="text-white">(71) 99401-0014</span>
+              </p>
+              <p className="text-gray-400 text-sm">
+                Disponível para dúvidas e suporte às empreendedoras
+              </p>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2025 Plataforma Empreendedores. Todos os direitos reservados.</p>
+          </div>
+        </div>
+      </footer>
     </>
   )
 }
