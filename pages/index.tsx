@@ -121,12 +121,6 @@ export default function Home() {
             <h3 className="text-4xl font-bold text-gray-900 mb-2">Empresas Cadastradas</h3>
             <p className="text-gray-600 mb-8 text-lg">Conheça empreendedores que já transformaram suas ideias em realidade</p>
 
-            <Link href="/inicio-jornada">
-              <button className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 mb-8 flex items-center gap-2 cursor-pointer">
-                <span>📊</span> Iniciar Nova Jornada
-              </button>
-            </Link>
-
             {empresas.length > 0 && (
               <div className="grid gap-4">
                 {empresas.map((empresa) => (
@@ -143,6 +137,40 @@ export default function Home() {
           </div>
         </div>
       </section>
+       {/* Autenticação Section */}
+ <section className="py-20 px-6 bg-gray-50">
+ <div className="container mx-auto max-w-3xl">
+ <div className="grid md:grid-cols-2 gap-8">
+ {/* Login Button */}
+ <Link href="/login">
+ <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 text-center border-t-4 border-indigo-600 cursor-pointer">
+ <div className="text-5xl mb-4">🔐</div>
+ <h3 className="text-2xl font-bold text-gray-900 mb-3">Já tem Conta?</h3>
+ <p className="text-gray-700 leading-relaxed mb-6">
+ Acesse sua conta e continue sua jornada empresarial
+ </p>
+ <button className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+ Entrar
+ </button>
+ </div>
+ </Link>
+
+ {/* Signup Button */}
+ <Link href="/signup">
+ <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 text-center border-t-4 border-blue-500 cursor-pointer">
+ <div className="text-5xl mb-4">✨</div>
+ <h3 className="text-2xl font-bold text-gray-900 mb-3">Novo Aqui?</h3>
+ <p className="text-gray-700 leading-relaxed mb-6">
+ Crie sua conta e comece a transformar sua ideia em negócio
+ </p>
+ <button className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+ Criar Conta
+ </button>
+ </div>
+ </Link>
+ </div>
+ </div>
+ </section>
 
       {/* CTA Section */}
       <section className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-20 px-6">
