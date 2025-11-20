@@ -23,6 +23,18 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-5xl font-bold mb-4">Seu Caminho para o Sucesso Empresarial</h2>
           <p className="text-xl text-blue-100 mb-8">
+             <div className="flex gap-4 justify-center mt-8">
+                <Link href="/login">
+                   <button className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 cursor-pointer">
+                      Entrar
+                      </button>
+                   </Link>
+                <Link href="/signup">
+                   <button className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-300 cursor-pointer border-2 border-white">
+                      Criar Conta
+                      </button>
+                   </Link>
+                </div>
             Tudo que você precisa em um único lugar: Planejamento, Formalização, Presença Digital, Gestão e Crescimento
           </p>
         </div>
