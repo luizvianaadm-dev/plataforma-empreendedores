@@ -88,7 +88,7 @@ return (
 <div className="bg-blue-50 p-4 rounded-lg mt-3 space-y-2">
 <p><strong>Email:</strong> privacidade@plataforma-empreendedores.com</p>
 <p><strong>Telefone:</strong> (71) 99401-0014</p>
-<p><strong>Endereco:</strong> Salvador, BA, Brasil</p>
+<p><strong>Endereco:</strong> Guarulhos, SP, Brasil - AV. EMILIO RIBAS, 1056, SALA 902, CEP 07.020-010</p>
 <p><strong>Resposta:</strong> Ate 15 dias uteis</p>
 </div>
 </section>
@@ -120,5 +120,17 @@ return (
 </div>
 </div>
 </div>
+  <div className="bg-white rounded-xl shadow-lg p-8 mt-8">
+  <p className="text-lg font-semibold text-gray-900 mb-4">INFORMACOES DA EMPRESA</p>
+  <div className="space-y-2 mb-6 text-gray-700">
+  <p><strong>Empresa:</strong> VORCON CONSULTORES ASSOCIADOS LTDA</p>
+  <p><strong>CNPJ:</strong> 52.806.620/0001-16</p>
+  <p><strong>Socio Unico:</strong> Luiz Carlos Lopes Viana</p>
+  <p><strong>Endereco:</strong> Av. Emilio Ribas, 1056, Sala 902, CEP 07.020-010, Guarulhos, SP</p>
+  </div>
+  <div className="bg-green-50 border-2 border-green-300 p-6 rounded-lg mt-6">
+  <p className="text-sm text-gray-700 mb-4"><strong>Confirmar Aceite:</strong> Ao clicar em 'Aceitar e Gerar Documento', voce confirma que leu e concorda com toda a Politica de Privacidade e LGPD.</p>
 );
-}
+
+</div>
+  });}
