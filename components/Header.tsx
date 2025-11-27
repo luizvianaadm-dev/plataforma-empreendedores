@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import UserProfileDropdown from './UserProfileDropdown';
 
 interface User {
   name: string;
@@ -55,19 +56,8 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-4">
           {/* Show user profile if logged in */}
-          {user ? (
-            <div className="relative">
-              <button
-                onClick={() => setShowDropdown(!showDropdown)}
-                className="flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition cursor-pointer"
-              >
-                {user.avatar ? (
-                  <img
-                    src={user.avatar}
-                    alt={user.name}
-                    className="w-8 h-8 rounded-full"
-                  />
-                ) : (
+          {user && <UserProfileDropdown userData={user} />}
+ (
                   <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
                     <span className="text-white text-sm font-semibold">
                       {user.name?.[0]?.toUpperCase()}
