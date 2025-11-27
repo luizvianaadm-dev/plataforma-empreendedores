@@ -126,6 +126,34 @@ export default function InicioJornada() {
                   <label className="block text-gray-700 font-semibold mb-2">Email</label>
                   <input type="email" placeholder="seu@email.com" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
                 </div>
+                            <div>
+              <label className="block text-gray-700 font-semibold mb-2">Rua</label>
+              <input type="text" placeholder="Rua do seu endereço" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Número</label>
+                <input type="text" placeholder="Número" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Bairro</label>
+                <input type="text" placeholder="Bairro" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
+              </div>
+            </div>
+            <div>
+              <label className="block text-gray-700 font-semibold mb-2">Cidade</label>
+              <input type="text" placeholder="Cidade" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">Estado</label>
+                <input type="text" placeholder="UF" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-semibold mb-2">CEP</label>
+                <input type="text" placeholder="00000-000" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
+              </div>
+            </div>
               </>
             )}
 
