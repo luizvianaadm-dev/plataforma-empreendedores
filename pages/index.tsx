@@ -186,46 +186,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer - COM TELEFONE E INFO */}
-      <footer className="bg-gray-900 text-white py-12 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Coluna 1 - Sobre */}
-            <div>
-              <h4 className="text-2xl font-bold mb-4">Plataforma Empreendedores</h4>
-              <p className="text-gray-400 leading-relaxed">
-                Transformando ideias em negócios de sucesso através de planejamento, formalização e crescimento estratégico.
-              </p>
-            </div>
-
-            {/* Coluna 2 - Links */}
-            <div>
-              <h4 className="text-xl font-bold mb-4">Links Rápidos</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/planeje"><span className="hover:text-white cursor-pointer">Planeje</span></Link></li>
-                <li><Link href="/formalizacao"><span className="hover:text-white cursor-pointer">Formalize</span></Link></li>
-                <li><Link href="/presenca-digital"><span className="hover:text-white cursor-pointer">Presença Digital</span></Link></li>
-                <li><Link href="/politica-lgpd"><span className="hover:text-white cursor-pointer">Política LGPD</span></Link></li>
-              </ul>
-            </div>
-
-            {/* Coluna 3 - Contato */}
-            <div>
-              <h4 className="text-xl font-bold mb-4">Contato</h4>
-              <p className="text-gray-400 mb-2">
-                <strong>Telefone:</strong> <span className="text-white">(71) 99401-0014</span>
-              </p>
-              <p className="text-gray-400 text-sm">
-                Disponível para dúvidas e suporte às empreendedoras
-              </p>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Plataforma Empreendedores. Todos os direitos reservados.</p>
-          </div>
-        </div>
-      </footer>
     </>
   )
 }
