@@ -47,7 +47,6 @@ export default function Header() {
         <nav className="flex items-center gap-6">
           <a href="/" className="text-gray-600 hover:text-gray-900 font-medium">Home</a>
           <a href="/" className="text-gray-600 hover:text-gray-900 font-medium">Planeje</a>
-          <a href="/planejar" className="text-gray-600 hover:text-gray-900 font-medium">Planejar</a>
           <a href="/cadastro-cliente" className="text-gray-600 hover:text-gray-900 font-medium">Cadastro Cliente</a>
           <a href="/formalizacao" className="text-gray-600 hover:text-gray-900 font-medium">Formalizar-se</a>
           <a href="/presenca-digital" className="text-gray-600 hover:text-gray-900 font-medium">Presença Digital</a>
