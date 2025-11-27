@@ -106,4 +106,47 @@ export function validatePassword(password: string): boolean {
 export interface ValidationResult {
   isValid: boolean;
   errors: string[];
+
+
+// API Validation Functions
+// Validates CPF via API
+export async function validateCPFViaAPI(cpf: string) {
+  try {
+    const response = await fetch('/api/validation/cpf-validator', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cpf })
+    });
+    return await response.json();
+  } catch (error) {
+    return { valid: false, error: 'Erro ao validar CPF' };
+  }
 }
+
+// Validates CEP via API and returns address data
+export async function validateCEPViaAPI(cep: string) {
+  try {
+    const response = await fetch('/api/validation/cep-validator', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cep })
+    });
+    return await response.json();
+  } catch (error) {
+    return { valid: false, error: 'Erro ao validar CEP' };
+  }
+}
+
+// Validates CNPJ via API
+export async function validateCNPJViaAPI(cnpj: string) {
+  try {
+    const response = await fetch('/api/validation/cnpj-validator', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cnpj })
+    });
+    return await response.json();
+  } catch (error) {
+    return { valid: false, error: 'Erro ao validar CNPJ' };
+  }
+}}
