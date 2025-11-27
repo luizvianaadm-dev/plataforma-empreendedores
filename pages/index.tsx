@@ -21,7 +21,7 @@ export default function Home() {
       {/* Hero Section - SEM BOTÕES */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-5xl font-bold mb-4">Seu Caminho para o Sucesso Empresarial</h2>
+          <h2 className="text-5xl font-bold mb-4">Seu Ecossistema de Empreendedorismo no Brasil em um só lugar!</h2>
           <p className="text-xl text-blue-100 mb-8">
             Tudo que você precisa em um único lugar: Planejamento, Formalização, Presença Digital, Gestão e Crescimento
           </p>
