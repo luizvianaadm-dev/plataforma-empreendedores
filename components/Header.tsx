@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 interface User {
   name: string;
@@ -9,8 +10,10 @@ interface User {
 }
 
 export default function Header() {
+  const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
     // Check if user is authenticated by looking for token in localStorage
@@ -24,6 +27,16 @@ export default function Header() {
     }
     setIsLoading(false);
   }, []);
+
+  const handleLogout = () => {
+    // Clear user data from localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    setUser(null);
+    setShowDropdown(false);
+    // Redirect to home
+    router.push('/login');
+  };
 
   return (
     <header className="bg-white border-b border-gray-200 shadow-sm">
@@ -43,28 +56,51 @@ export default function Header() {
         <div className="flex items-center gap-4">
           {/* Show user profile if logged in */}
           {user ? (
-            <div className="flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-lg">
-              {user.avatar ? (
-                <img
-                  src={user.avatar}
-                  alt={user.name}
-                  className="w-8 h-8 rounded-full"
-                />
-              ) : (
-                <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
-                  <span className="text-white text-sm font-semibold">
-                    {user.name?.[0]?.toUpperCase()}
-                  </span>
+            <div className="relative">
+              <button
+                onClick={() => setShowDropdown(!showDropdown)}
+                className="flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition cursor-pointer"
+              >
+                {user.avatar ? (
+                  <img
+                    src={user.avatar}
+                    alt={user.name}
+                    className="w-8 h-8 rounded-full"
+                  />
+                ) : (
+                  <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
+                    <span className="text-white text-sm font-semibold">
+                      {user.name?.[0]?.toUpperCase()}
+                    </span>
+                  </div>
+                )}
+                <div className="flex flex-col text-left">
+                  <span className="text-sm font-semibold text-gray-900">{user.name}</span>
+                  <span className="text-xs text-indigo-600 font-medium">LOGADO</span>
+                </div>
+              </button>
+              
+              {/* Dropdown Menu */}
+              {showDropdown && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                  <div className="p-4 border-b border-gray-200">
+                    <p className="text-sm font-semibold text-gray-900">{user.name}</p>
+                    <p className="text-xs text-gray-600">{user.email}</p>
+                  </div>
+                  <div className="p-2">
+                    <button
+                      onClick={handleLogout}
+                      className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 rounded transition font-medium"
+                    >
+                      Sair da Conta
+                    </button>
+                  </div>
                 </div>
               )}
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-900">{user.name}</span>
-                <span className="text-xs text-indigo-600 font-medium">LOGADO</span>
-              </div>
             </div>
           ) : (
             // Show create account button only if not logged in
-            <a href="/signup" className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-md">
+            <a href="/signup" className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-md transition">
               Criar Conta
             </a>
           )}
