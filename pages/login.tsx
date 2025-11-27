@@ -33,7 +33,17 @@ export default function Login() {
       // Store JWT token
       localStorage.setItem('token', data.token);
       
-      // Redirect to dashboard
+        // Store user data
+        const userData = {
+          name: data.user?.user_metadata?.full_name || data.user?.email || 'Usuario',
+          email: data.user?.email,
+          avatar: data.user?.user_metadata?.avatar_url || null
+        };
+        localStorage.setItem('user', JSON.stringify(userData));
+        
+        // Redirect to home
+      
+      
       router.push('/');
     } catch (err) {
       setError('Erro na requisição');
