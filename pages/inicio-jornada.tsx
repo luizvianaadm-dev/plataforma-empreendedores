@@ -166,6 +166,37 @@ export default function InicioJornada() {
           </button>
         </div>
 
+
+             {/* IA Integrada para Planejar */}
+     <section className="py-20 px-6 bg-gradient-to-r from-blue-600 to-indigo-600">
+       <div className="container mx-auto max-w-4xl">
+         <div className="bg-white rounded-xl shadow-2xl p-12">
+           <h2 className="text-4xl font-bold text-gray-900 mb-4">IA Integrada para Planejar</h2>
+           <p className="text-gray-700 text-lg mb-6">
+             Nossa plataforma integra Perplexity AI para ajudar vocé a validar ideias, analisar mercados e refinar seu plano de negócios em tempo real.
+           </p>
+           <ul className="space-y-3 mb-8">
+             <li className="flex items-center text-gray-700">
+               <span className="mr-3 text-2xl">✓</span> Análise de mercado com dados atualizados
+             </li>
+             <li className="flex items-center text-gray-700">
+               <span className="mr-3 text-2xl">✓</span> Validação de ideias de negócios
+             </li>
+             <li className="flex items-center text-gray-700">
+               <span className="mr-3 text-2xl">✓</span> Sugestões personalizadas para seu setor
+             </li>
+             <li className="flex items-center text-gray-700">
+               <span className="mr-3 text-2xl">✓</span> Planos financeiros e de ação
+             </li>
+           </ul>
+           <Link href="/planeje">
+             <button className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-lg transition-all duration-300 cursor-pointer">
+               Começar Planejamento →
+             </button>
+           </Link>
+         </div>
+       </div>
+     </section>
         {/* Info Footer */}
         {etapaAtual === 10 && (
           <div className="mt-12 bg-green-50 border-2 border-green-500 rounded-xl p-8 text-center">
