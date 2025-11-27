@@ -34,7 +34,7 @@ export default function Header() {
     localStorage.removeItem('user');
     setUser(null);
     setShowDropdown(false);
-    // Redirect to home
+    // Redirect to login
     router.push('/login');
   };
 
@@ -45,6 +45,7 @@ export default function Header() {
           <span className="text-2xl font-bold text-gray-900">Plataforma Empreendedores</span>
         </div>
         <nav className="flex items-center gap-6">
+          <a href="/" className="text-gray-600 hover:text-gray-900 font-medium">Home</a>
           <a href="/" className="text-gray-600 hover:text-gray-900 font-medium">Planeje</a>
           <a href="/planejar" className="text-gray-600 hover:text-gray-900 font-medium">Planejar</a>
           <a href="/cadastro-cliente" className="text-gray-600 hover:text-gray-900 font-medium">Cadastro Cliente</a>
