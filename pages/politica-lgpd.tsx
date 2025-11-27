@@ -174,7 +174,7 @@ export default function PoliticaLGPD() {
           ← Voltar
         </button>
         <button
-          onClick={() => window.location.href = '/criar-conta'}
+          onClick={() => window.location.href = '/signup'}
           className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all"
         >
           ✓ Aceitar e Continuar
