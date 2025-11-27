@@ -34,7 +34,7 @@ export default function Login() {
       localStorage.setItem('token', data.token);
       
       // Redirect to dashboard
-      router.push('/dashboard');
+      router.push('/');
     } catch (err) {
       setError('Erro na requisição');
       console.error(err);
