@@ -19,7 +19,8 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-lg font-bold mb-4">Contato</h3>
-            <p className="text-gray-400">Entre em contato conosco para saber mais</p>
+<p className="text-gray-400">            Email: contato@plataforma-empreendedores.com</p>
+<p className="text-gray-400">              Telefone: +55 71 99401-0014</p>
           </div>
         </div>
         <div className="border-t border-gray-700 pt-8 text-center text-gray-400">
