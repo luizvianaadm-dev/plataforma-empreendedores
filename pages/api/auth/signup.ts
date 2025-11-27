@@ -29,22 +29,15 @@ export default async function handler(
 
   try {
     // Verifica se usuário já existe
-    const { data: existingUser } = await supabase
+    const { data: existingUsers } = await supabase
       .from('usuarios')
       .select('*')
-      .eq('email', email)
-      .single();
+      .eq('email', email);
 
-    if (existingUser) {
+    if (existingUsers && existingUsers.length > 0) {
       return res.status(400).json({ error: 'Email já cadastrado' });
     }
-  } catch (err: any) {
-    if (err.code !== 'PGRST116') {
-      throw err;
-    }
-  }
 
-  try {
     // Hash da senha
     const senhaHash = await bcrypt.hash(password, 10);
 
