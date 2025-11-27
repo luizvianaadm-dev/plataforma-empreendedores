@@ -25,7 +25,7 @@ export default function InicioJornada() {
   const [etapaAtual, setEtapaAtual] = useState<number>(1)
   const [etapas, setEtapas] = useState<Etapa[]>(ETAPAS)
   const [formData, setFormData] = useState<Record<string, any>>({})
-    const [businessIdea, setBusinessIdea] = useState<string>('')135
+    const [businessIdea, setBusinessIdea] = useState<string>('')
   
    useEffect(() => {
     if (etapaAtual > 2 && etapaAtual <= 10) {
