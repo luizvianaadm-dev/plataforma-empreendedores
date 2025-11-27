@@ -132,6 +132,30 @@ export default function InicioJornada() {
                 <p className="text-gray-800 font-semibold mb-4">Descreva sua ideia de negocio:</p>
                 <textarea placeholder="Qual e sua ideia?" rows={5} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"></textarea>
                 <p className="text-sm text-gray-600 mt-3">Sera analisada com IA para viabilidade e melhorias</p>
+                                <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium" onClick={async () => {
+                  const idea = formData['idea'];
+                  if (!idea) {
+                    alert('Descreva sua ideia primeiro');
+                    return;
+                  }
+                  try {
+                    const res = await fetch('/api/perplexity/chat', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        messages: [{
+                          role: 'user',
+                          content: `Analise a viabilidade desta ideia: "${idea}". Feedback construtivo, riscos e oportunidades.`
+                        }]
+                      })
+                    });
+                    const data = await res.json();
+                    if (data.success) alert('Análise IA:\n' + data.message);
+                    else alert('Erro: ' + (data.error || 'Tente novamente'));
+                  } catch (e) { console.error(e); }
+                }}>
+                  🤖 Analisar com IA
+                </button>
               </div>
             )}
 
