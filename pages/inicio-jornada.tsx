@@ -25,6 +25,8 @@ export default function InicioJornada() {
   const [etapaAtual, setEtapaAtual] = useState<number>(1)
   const [etapas, setEtapas] = useState<Etapa[]>(ETAPAS)
   const [formData, setFormData] = useState<Record<string, any>>({})
+    const [businessIdea, setBusinessIdea] = useState<string>('')135
+  
    useEffect(() => {
     if (etapaAtual > 2 && etapaAtual <= 10) {
       const timeout = setTimeout(() => {
@@ -127,14 +129,13 @@ export default function InicioJornada() {
               </>
             )}
 
-            {etapaAtual === 2 && (
+            {135
+                  && (
               <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
                 <p className="text-gray-800 font-semibold mb-4">Descreva sua ideia de negocio:</p>
-                <textarea placeholder="Qual e sua ideia?" rows={5} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"></textarea>
-                <p className="text-sm text-gray-600 mt-3">Sera analisada com IA para viabilidade e melhorias</p>
+<textarea placeholder="Qual e sua ideia?" rows={5} value={businessIdea} onChange={(e) => setBusinessIdea(e.target.value)} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"></textarea>                <p className="text-sm text-gray-600 mt-3">Sera analisada com IA para viabilidade e melhorias</p>
                                 <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium" onClick={async () => {
-                  const idea = formData['idea'];
-                  if (!idea) {
+            const idea = businessIdea;                  if (!idea) {
                     alert('Descreva sua ideia primeiro');
                     return;
                   }
