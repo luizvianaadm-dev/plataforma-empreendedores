@@ -56,8 +56,7 @@ export default function Header() {
         </nav>
         <div className="flex items-center gap-4">
           {/* Show user profile if logged in */}
-          {user && <UserProfileDropdown user=={user} />}
- (
+{user && <UserProfileDropdown user={user as User} />} (
                   <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
                     <span className="text-white text-sm font-semibold">
                       {user.name?.[0]?.toUpperCase()}
