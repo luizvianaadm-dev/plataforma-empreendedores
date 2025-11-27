@@ -3,11 +3,6 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -28,11 +23,37 @@ export default async function handler(
   }
 
   try {
+    // Inicializa o cliente Supabase com tratamento de erro
+    let supabase;
+    try {
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+      
+      if (!supabaseUrl || !serviceRoleKey) {
+        return res.status(500).json({
+          error: 'Erro de configuração do servidor',
+          details: `URL: ${supabaseUrl ? 'ok' : 'missing'}, Key: ${serviceRoleKey ? 'ok' : 'missing'}`
+        });
+      }
+
+      supabase = createClient(supabaseUrl, serviceRoleKey);
+    } catch (initError: any) {
+      console.error('Erro ao inicializar Supabase:', initError);
+      return res.status(500).json({
+        error: 'Invalid API key or configuration error',
+        details: initError.message
+      });
+    }
+
     // Verifica se usuário já existe
-    const { data: existingUsers } = await supabase
+    const { data: existingUsers, error: checkError } = await supabase
       .from('usuarios')
       .select('*')
       .eq('email', email);
+
+    if (checkError) {
+      return res.status(400).json({ error: checkError.message });
+    }
 
     if (existingUsers && existingUsers.length > 0) {
       return res.status(400).json({ error: 'Email já cadastrado' });
