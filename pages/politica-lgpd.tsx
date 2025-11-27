@@ -164,6 +164,21 @@ export default function PoliticaLGPD() {
           </p>
         </div>
       </div>
-    </>
+    
+    
+      <div className="mt-8 flex gap-4 justify-center">
+        <button
+          onClick={() => window.history.back()}
+          className="px-8 py-3 bg-gray-500 text-white rounded-lg font-semibold hover:bg-gray-600 transition-all"
+        >
+          ← Voltar
+        </button>
+        <button
+          onClick={() => window.location.href = '/criar-conta'}
+          className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all"
+        >
+          ✓ Aceitar e Continuar
+        </button>
+      </div></>
   );
 }
