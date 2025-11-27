@@ -2,8 +2,14 @@
 
 import { useEffect, useState } from 'react';
 
+interface User {
+  name: string;
+  email: string;
+  avatar: string | null;
+}
+
 export default function Header() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -58,7 +64,7 @@ export default function Header() {
             </div>
           ) : (
             // Show create account button only if not logged in
-            <a href="/signup" className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-2 rounded-lg semibold hover:shadow-md">
+            <a href="/signup" className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-md">
               Criar Conta
             </a>
           )}
