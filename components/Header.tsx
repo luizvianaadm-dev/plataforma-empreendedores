@@ -53,6 +53,7 @@ export default function Header() {
           <a href="/presenca-digital" className="text-gray-600 hover:text-gray-900 font-medium">Presença Digital</a>
           <a href="/gestao-operacional" className="text-gray-600 hover:text-gray-900 font-medium">Gestao Operacional</a>
           <a href="/crescimento-expansao" className="text-gray-600 hover:text-gray-900 font-medium">Crescimento & Expansao</a>
+                          <a href="/pricing" className="text-gray-600 hover:text-gray-900 font-medium">Preços</a>
         </nav>
         <div className="flex items-center gap-4">
           {/* Show user profile if logged in */}
